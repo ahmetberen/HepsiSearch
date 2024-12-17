@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify
 import requests  # HTTP istekleri için kütüphane
 from bs4 import BeautifulSoup  # HTML parsing için kütüphane
+from flask_cors import CORS  # CORS import edilir
 import re
 import time
 
 app = Flask(__name__)
+
+CORS(app)
 
 def scrape(product_query, max_pages):
     product_query_url = product_query.replace(" ", "+")
